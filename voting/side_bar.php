@@ -1,0 +1,25 @@
+<nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom:0; background-color:green;">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="" style = "color:white; padding-left:25px;"><i class = "fa fa-home fa-large" > </i>HOME | OES - Online Election System</a>
+				
+            </div>
+      
+
+            <ul class="nav navbar-top-links navbar-right">
+            
+                <?php 
+                    require 'admin/dbcon.php';
+                    $query = $conn->query("SELECT * from voters where voters_id ='$session_id'")or die (mysql_error ());
+                    
+                    while ($row = $query->fetch_array()){
+				?>
+               
+            <li class="dropdown">
+                <a href="logout.php"style = "color: white; padding-rignt: 30px;"> <i class = "fa fa-sign-out" style = "color: white"></i>Logout</a>
+            </li>
+           
+            </ul>
+			<?php 
+            }
+            ?>
+        </nav>
